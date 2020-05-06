@@ -63,7 +63,7 @@ func (i *Int) Desc() string {
 	return i.Label
 }
 
-// Equal returns true of value's are equal.
+// Equal returns true if value's are equal.
 func (i *Int) Equal(j *Int) bool {
 	if i == nil && j == nil {
 		return true
@@ -74,7 +74,7 @@ func (i *Int) Equal(j *Int) bool {
 	return i.Value == j.Value
 }
 
-// LessThan returns true of i's value is less than j
+// LessThan returns true if i's value is less than j
 func (i *Int) LessThan(j *Int) bool {
 	if i == nil && j == nil {
 		return false
@@ -85,7 +85,7 @@ func (i *Int) LessThan(j *Int) bool {
 	return i.Value < j.Value
 }
 
-// MoreThan returns true of i's value is more than j
+// MoreThan returns true if i's value is more than j
 func (i *Int) MoreThan(j *Int) bool {
 	if i == nil && j == nil {
 		return false
@@ -94,4 +94,28 @@ func (i *Int) MoreThan(j *Int) bool {
 		return false
 	}
 	return i.Value > j.Value
+}
+
+// EqualToValue returns true if i's value is less than j
+func (i *Int) EqualToValue(j int) bool {
+	if i == nil {
+		return false
+	}
+	return i.Value == j
+}
+
+// LessThanValue returns true if i's value is less than j
+func (i *Int) LessThanValue(j int) bool {
+	if i == nil {
+		return false
+	}
+	return i.Value < j
+}
+
+// MoreThanValue returns true if i's value is more than j
+func (i *Int) MoreThanValue(j int) bool {
+	if i == nil {
+		return false
+	}
+	return i.Value > j
 }

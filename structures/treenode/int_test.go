@@ -64,8 +64,8 @@ func TestEqual(t *testing.T) {
 
 	tests := []struct {
 		node     *Int   // Struct test executes on
-		input *Int // Parameter to the function
-		expected bool // Expected result
+		input    *Int   // Parameter to the function
+		expected bool   // Expected result
 		desc     string // Description of testcase
 	}{
 		{nilNode, nilNode, true, "Nil nodes"},
@@ -91,8 +91,8 @@ func TestLessThan(t *testing.T) {
 
 	tests := []struct {
 		node     *Int   // Struct test executes on
-		input *Int // Parameter to the function
-		expected bool // Expected result
+		input    *Int   // Parameter to the function
+		expected bool   // Expected result
 		desc     string // Description of testcase
 	}{
 		{nilNode, nilNode, false, "Nil nodes"},
@@ -119,8 +119,8 @@ func TestMoreThan(t *testing.T) {
 
 	tests := []struct {
 		node     *Int   // Struct test executes on
-		input *Int // Parameter to the function
-		expected bool // Expected result
+		input    *Int   // Parameter to the function
+		expected bool   // Expected result
 		desc     string // Description of testcase
 	}{
 		{nilNode, nilNode, false, "Nil nodes"},
@@ -135,6 +135,74 @@ func TestMoreThan(t *testing.T) {
 	for _, test := range tests {
 		if actual := test.node.MoreThan(test.input); actual != test.expected {
 			t.Errorf("[%s]:MoreThan() = Actual:[%v], Expected:[%v]", test.desc, actual, test.expected)
+		}
+	}
+}
+
+func TestEqualToValue(t *testing.T) {
+	var nilNode *Int
+	s1 := NewIntRoot(1, "")
+
+	tests := []struct {
+		node     *Int   // Struct test executes on
+		input    int    // Parameter to the function
+		expected bool   // Expected result
+		desc     string // Description of testcase
+	}{
+		{nilNode, 1, false, "Nil nodes"},
+		{s1, 1, true, "Same"},
+		{s1, 2, false, "Different value"},
+	}
+
+	for _, test := range tests {
+		if actual := test.node.EqualToValue(test.input); actual != test.expected {
+			t.Errorf("[%s]:EqualToValue() = Actual:[%v], Expected:[%v]", test.desc, actual, test.expected)
+		}
+	}
+}
+
+func TestLessThanValue(t *testing.T) {
+	var nilNode *Int
+	s2 := NewIntRoot(2, "")
+
+	tests := []struct {
+		node     *Int   // Struct test executes on
+		input    int    // Parameter to the function
+		expected bool   // Expected result
+		desc     string // Description of testcase
+	}{
+		{nilNode, 1, false, "Nil nodes"},
+		{s2, 2, false, "Same"},
+		{s2, 1, false, "Not 2 < 1"},
+		{s2, 3, true, "2 < 3"},
+	}
+
+	for _, test := range tests {
+		if actual := test.node.LessThanValue(test.input); actual != test.expected {
+			t.Errorf("[%s]:LessThanValue() = Actual:[%v], Expected:[%v]", test.desc, actual, test.expected)
+		}
+	}
+}
+
+func TestMoreThanValue(t *testing.T) {
+	var nilNode *Int
+	s2 := NewIntRoot(2, "")
+
+	tests := []struct {
+		node     *Int   // Struct test executes on
+		input    int    // Parameter to the function
+		expected bool   // Expected result
+		desc     string // Description of testcase
+	}{
+		{nilNode, 1, false, "Nil nodes"},
+		{s2, 2, false, "Same"},
+		{s2, 3, false, "Not 2 > 3"},
+		{s2, 1, true, "2 > 1"},
+	}
+
+	for _, test := range tests {
+		if actual := test.node.MoreThanValue(test.input); actual != test.expected {
+			t.Errorf("[%s]:MoreThanValue() = Actual:[%v], Expected:[%v]", test.desc, actual, test.expected)
 		}
 	}
 }
