@@ -62,3 +62,36 @@ func (i *Int) Desc() string {
 	}
 	return i.Label
 }
+
+// Equal returns true of value's are equal.
+func (i *Int) Equal(j *Int) bool {
+	if i == nil && j == nil {
+		return true
+	}
+	if (i == nil && j != nil) || (i != nil && j == nil) {
+		return false
+	}
+	return i.Value == j.Value
+}
+
+// LessThan returns true of i's value is less than j
+func (i *Int) LessThan(j *Int) bool {
+	if i == nil && j == nil {
+		return false
+	}
+	if (i == nil && j != nil) || (i != nil && j == nil) {
+		return false
+	}
+	return i.Value < j.Value
+}
+
+// MoreThan returns true of i's value is more than j
+func (i *Int) MoreThan(j *Int) bool {
+	if i == nil && j == nil {
+		return false
+	}
+	if (i == nil && j != nil) || (i != nil && j == nil) {
+		return false
+	}
+	return i.Value > j.Value
+}
