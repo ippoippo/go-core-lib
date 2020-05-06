@@ -1,3 +1,3 @@
 module github.com/ippoippo/go-core-lib
 
-go 1.13
+go 1.14
