@@ -6,8 +6,8 @@ import (
 
 func TestEqualInt(t *testing.T) {
 	tests := []struct {
-		a []int
-		b []int
+		a        []int
+		b        []int
 		expected bool
 		desc     string // Description of testcase
 	}{
@@ -27,4 +27,3 @@ func TestEqualInt(t *testing.T) {
 		}
 	}
 }
-

@@ -6,7 +6,7 @@ func EqualInt(a, b []int) bool {
 		return false
 	}
 
-	if len(a) != len(b)	{
+	if len(a) != len(b) {
 		return false
 	}
 
