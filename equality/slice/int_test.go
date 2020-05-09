@@ -23,7 +23,7 @@ func TestEqualInt(t *testing.T) {
 
 	for _, test := range tests {
 		if actual := EqualInt(test.a, test.b); actual != test.expected {
-			t.Errorf("[%s]:String() = Actual:[%v], Expected:[%v]", test.desc, actual, test.expected)
+			t.Errorf("[%s]:EqualInt() = Actual:[%v], Expected:[%v]", test.desc, actual, test.expected)
 		}
 	}
 }
